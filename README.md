@@ -80,3 +80,9 @@ TechPath.ai is a starting point, not official advice. Confirm fees, deadlines, e
 ## License
 
 MIT. See `LICENSE`.
+
+## Demo video
+[Watch the 2-minute demo](YAHAN_VIDEO_LINK_DALEIN)
+
+## Live demo
+[Open TechPath.ai](https://ghulamakbarmkt302-wq.github.io/TechPath.ai/)
