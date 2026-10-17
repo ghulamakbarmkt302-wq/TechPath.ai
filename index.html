@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TechPath.ai: Your tech career guide for Pakistan</title>
+<meta name="description" content="TechPath.ai helps students in Pakistan choose a tech field, plan semesters, pick an FYP, find universities and scholarships, and prepare to study abroad. Powered by Gemma 4 and Ollama.">
+<style>
+:root{--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--bg:#f5f7fb;--card:#fff;--brand:#2563eb;--brand2:#7c3aed;--ok:#059669;--warn:#b45309;--warnbg:#fffbeb}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+.hero{background:linear-gradient(135deg,#1e3a8a 0%,var(--brand) 50%,var(--brand2) 100%);color:#fff;padding:44px 24px 40px}
+.hero-inner{max-width:1000px;margin:0 auto}
+.logo{font-size:30px;font-weight:800;letter-spacing:-.5px}
+.logo span{opacity:.75}
+.tagline{font-size:18px;margin:8px 0 22px;opacity:.95;max-width:680px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:14px;text-align:center}
+.stat b{display:block;font-size:26px}
+.stat small{opacity:.9}
+nav{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:10px 16px;overflow-x:auto;white-space:nowrap}
+nav button{border:1px solid var(--line);background:#fff;color:var(--ink);padding:8px 14px;border-radius:999px;margin-right:6px;cursor:pointer;font:inherit;font-size:14px;font-weight:600}
+nav button:hover{border-color:var(--brand);color:var(--brand)}
+nav button.active{background:var(--brand);border-color:var(--brand);color:#fff}
+main{max-width:1000px;margin:0 auto;padding:24px 16px 60px}
+h2{margin:0 0 6px;font-size:24px}
+h3{margin:0 0 6px}
+.lead{font-size:17px;color:var(--ink)}
+.muted{color:var(--muted);font-size:14px}
+.small{font-size:12.5px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-bottom:14px;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.warn{background:var(--warnbg);color:var(--warn);border:1px solid #fde68a;border-radius:12px;padding:10px 14px;font-size:14px;margin-bottom:14px}
+.ok{color:var(--ok)}
+label{display:block;font-weight:600;font-size:14px;margin:12px 0 4px}
+input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff}
+input:focus,select:focus,textarea:focus{outline:2px solid #bfdbfe;border-color:var(--brand)}
+textarea{min-height:140px}
+.btn{background:var(--brand);color:#fff;border:0;padding:11px 18px;border-radius:10px;font:inherit;font-weight:600;cursor:pointer;margin-top:12px;text-decoration:none;display:inline-block}
+.btn:hover{filter:brightness(1.05)}
+.btn-ghost{border:1px solid var(--line);color:var(--brand);padding:8px 12px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;background:#fff}
+.btn-ghost:hover{border-color:var(--brand)}
+details{border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:8px 0;background:#fff}
+summary{cursor:pointer;font-weight:700}
+ul{margin:6px 0 10px;padding-left:20px}
+.out{white-space:pre-wrap;background:#f1f5ff;border:1px solid #dbeafe;border-radius:12px;padding:14px;margin-top:14px;font-size:15px}
+.hidden{display:none}
+.hit{padding:10px 12px;border:1px solid var(--line);border-radius:10px;margin:6px 0;cursor:pointer;background:#fff}
+.hit:hover{border-color:var(--brand)}
+.pill{display:inline-block;font-size:12px;font-weight:700;background:#eef2ff;color:var(--brand);border-radius:999px;padding:2px 9px;margin-right:6px}
+.course,.uni{display:flex;justify-content:space-between;align-items:center;gap:14px}
+.check{display:flex;align-items:flex-start;gap:10px;font-weight:400;margin:8px 0;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.check input{width:auto;margin-top:5px}
+.bar{height:10px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin-top:10px}
+.bar div{height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--ok));transition:width .3s}
+.ai-badges span{display:inline-block;background:#f5f3ff;color:var(--brand2);border-radius:999px;padding:4px 10px;font-size:13px;font-weight:700;margin:4px 6px 0 0}
+footer{background:#0f172a;color:#cbd5e1;padding:28px 16px;font-size:14px}
+footer .inner{max-width:1000px;margin:0 auto}
+footer a{color:#93c5fd}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}.grid2,.grid3{grid-template-columns:1fr}.course,.uni{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="logo">TechPath<span>.ai</span></div>
+    <p class="tagline">Your tech career guide for Pakistan. Pick a field, plan your semesters, choose a final-year project, find universities and scholarships, and prepare to study abroad.</p>
+    <div class="stats">
+      <div class="stat"><b id="statFields">0</b><small>Tech fields</small></div>
+      <div class="stat"><b id="statCourses">0</b><small>Courses</small></div>
+      <div class="stat"><b id="statUnis">0</b><small>Universities</small></div>
+      <div class="stat"><b id="statCities">0</b><small>Cities</small></div>
+      <div class="stat"><b id="statCs">0</b><small>With CS programs</small></div>
+    </div>
+  </div>
+</section>
+
+<nav id="nav"></nav>
+
+<main>
+
+  <!-- Home -->
+  <section id="tab-home">
+    <div class="card">
+      <h2>Search everything</h2>
+      <p class="muted">Type a field, course, city, university, scholarship or country.</p>
+      <input id="search" placeholder="e.g. Python, Lahore, Germany, Cyber Security">
+      <div id="searchOut"></div>
+    </div>
+    <div class="grid3">
+      <div class="card"><h3>1. Choose a field</h3><p class="muted">Compare six tech fields and see semester-by-semester skills and projects.</p><button class="btn" onclick="show('road')">Open roadmaps</button></div>
+      <div class="card"><h3>2. Learn the right courses</h3><p class="muted">Filter about 40 tech courses by category and level, with official documentation links.</p><button class="btn" onclick="show('courses')">Browse courses</button></div>
+      <div class="card"><h3>3. Plan your FYP</h3><p class="muted">Use the checklist, get project ideas and proposal feedback with AI.</p><button class="btn" onclick="show('fyp')">Open FYP tools</button></div>
+      <div class="card"><h3>4. Find universities</h3><p class="muted">Filter universities across Pakistan by province, type and city.</p><button class="btn" onclick="show('unis')">See universities</button></div>
+      <div class="card"><h3>5. Find scholarships</h3><p class="muted">Start with official sources for national and international funding.</p><button class="btn" onclick="show('schol')">See scholarships</button></div>
+      <div class="card"><h3>6. Study abroad</h3><p class="muted">Country checklists for Canada, the UK, Germany and Malaysia.</p><button class="btn" onclick="show('abroad')">Open checklists</button></div>
+    </div>
+    <div class="card">
+      <h3>AI, in two ways</h3>
+      <p class="muted">TechPath.ai uses Gemma 4 through the Gemini API for cloud answers and image reading, and Ollama for open-weight Gemma models that run on your own computer. Both are optional. Everything else works without AI.</p>
+      <div class="ai-badges"><span>Gemma 4 (Gemini API)</span><span>Ollama (local Gemma)</span><span>Result card reading</span><span>Open-source agent skill</span></div>
+    </div>
+  </section>
+
+  <!-- Roadmaps -->
+  <section id="tab-road" class="hidden">
+    <div class="card">
+      <h2>Field roadmaps</h2>
+      <label for="roadField">Choose a field</label>
+      <select id="roadField"></select>
+      <div id="roadOut"></div>
+      <a id="roadDownload" class="btn" href="#" download="roadmap.txt">Download this roadmap (.txt)</a>
+    </div>
+  </section>
+
+  <!-- Courses -->
+  <section id="tab-courses" class="hidden">
+    <div class="card">
+      <h2>Tech courses</h2>
+      <p class="muted">Each course links to its official documentation, so you start from the source.</p>
+      <div class="grid3">
+        <div><label for="courseCat">Category</label><select id="courseCat"></select></div>
+        <div><label for="courseLvl">Level</label><select id="courseLvl"></select></div>
+        <div><label for="courseQ">Search</label><input id="courseQ" placeholder="e.g. React"></div>
+      </div>
+      <p class="muted" id="courseCount"></p>
+    </div>
+    <div id="courseList"></div>
+  </section>
+
+  <!-- Compare -->
+  <section id="tab-compare" class="hidden">
+    <div class="card">
+      <h2>Compare two fields</h2>
+      <div class="grid2">
+        <div><label for="cmpA">First field</label><select id="cmpA"></select></div>
+        <div><label for="cmpB">Second field</label><select id="cmpB"></select></div>
+      </div>
+    </div>
+    <div id="cmpOut"></div>
+  </section>
+
+  <!-- FYP -->
+  <section id="tab-fyp" class="hidden">
+    <div class="card">
+      <h2>Final-year project checklist</h2>
+      <p class="muted">Tick each step as you finish. Progress is saved in this browser.</p>
+      <div id="fypList"></div>
+      <div class="bar"><div id="fypProgress"></div></div>
+      <p class="muted" id="fypCount"></p>
+    </div>
+    <div class="card">
+      <h3>AI project ideas</h3>
+      <div class="grid3">
+        <div><label for="fypField">Field</label><select id="fypField"></select></div>
+        <div><label for="fypMonths">Months left</label><input id="fypMonths" type="number" min="1" max="12" value="6"></div>
+        <div><label for="fypSkills">Your skills</label><input id="fypSkills" placeholder="Python, React, SQL"></div>
+      </div>
+      <label for="fypInterest">Area you care about</label>
+      <input id="fypInterest" placeholder="health, agriculture, education, traffic">
+      <button class="btn" onclick="fypIdeas()">Generate project ideas</button>
+      <div id="fypOut" class="out hidden"></div>
+    </div>
+    <div class="card">
+      <h3>AI proposal feedback</h3>
+      <p class="muted">Feedback only. The advisor will not write your proposal.</p>
+      <textarea id="fypProposal" placeholder="Paste your proposal or outline"></textarea>
+      <button class="btn" onclick="reviewProposal()">Review my proposal</button>
+      <div id="proposalOut" class="out hidden"></div>
+    </div>
+  </section>
+
+  <!-- Universities -->
+  <section id="tab-unis" class="hidden">
+    <div class="warn">These entries are a starter list and are not verified yet. Check each official admissions page before you rely on it.</div>
+    <div class="card">
+      <div class="grid3">
+        <div><label for="uniProv">Province or territory</label><select id="uniProv"></select></div>
+        <div><label for="uniType">Type</label><select id="uniType"><option>All</option><option>Public</option><option>Private</option></select></div>
+        <div><label for="uniQ">Name or city</label><input id="uniQ" placeholder="e.g. Karachi"></div>
+      </div>
+      <p class="muted" id="uniCount"></p>
+    </div>
+    <div id="uniList"></div>
+  </section>
+
+  <!-- Scholarships -->
+  <section id="tab-schol" class="hidden">
+    <div class="warn">Criteria and deadlines change every year. Always check the official source for the current notice.</div>
+    <div id="scholList"></div>
+  </section>
+
+  <!-- Study abroad -->
+  <section id="tab-abroad" class="hidden">
+    <div class="card">
+      <h2>Study abroad checklist</h2>
+      <label for="abroadCountry">Country</label>
+      <select id="abroadCountry"></select>
+      <p class="muted">General checklist. Confirm entry requirements, costs and visa rules on official websites. Ticks are saved in this browser.</p>
+      <div id="abroadList"></div>
+      <p class="muted" id="abroadCount"></p>
+    </div>
+  </section>
+
+  <!-- AI Advisor -->
+  <section id="tab-ai" class="hidden">
+    <div class="card">
+      <h2>AI advisor</h2>
+      <p class="muted">Choose where the AI runs. Gemma 4 runs in the cloud through the Gemini API. Ollama runs Gemma on your computer, so your questions stay local.</p>
+      <div class="grid2">
+        <div>
+          <label for="provider">Provider</label>
+          <select id="provider"><option value="gemma">Gemma 4 (Gemini API)</option><option value="ollama">Ollama (local Gemma)</option></select>
+        </div>
+        <div>
+          <label for="lang">Reply language</label>
+          <select id="lang"><option>English</option><option>Urdu</option></select>
+        </div>
+      </div>
+      <details>
+        <summary>AI setup</summary>
+        <div class="grid2">
+          <div>
+            <label for="geminiKey">Gemini API key</label>
+            <input id="geminiKey" type="password" placeholder="Paste key from Google AI Studio">
+            <p class="muted small">Used only in this page. Never saved.</p>
+          </div>
+          <div>
+            <label for="gemmaModel">Gemma model ID</label>
+            <input id="gemmaModel" value="gemma-4">
+            <p class="muted small">Confirm the exact ID in Google AI Studio.</p>
+          </div>
+          <div>
+            <label for="ollamaUrl">Ollama address</label>
+            <input id="ollamaUrl" value="http://localhost:11434">
+          </div>
+          <div>
+            <label for="ollamaModel">Ollama model</label>
+            <input id="ollamaModel" value="gemma3">
+            <p class="muted small">Download it first with: ollama pull gemma3</p>
+          </div>
+        </div>
+        <button class="btn" onclick="saveAiSettings()">Save settings</button>
+        <p class="muted small" id="aiStatus"></p>
+      </details>
+    </div>
+
+    <div class="card">
+      <h3>Ask the advisor</h3>
+      <textarea id="advQ" placeholder="e.g. I am in 2nd year BS CS and want to become a data analyst. What should I learn next?" style="min-height:90px"></textarea>
+      <button class="btn" onclick="advisor()">Ask TechPath</button>
+      <div id="advOut" class="out hidden"></div>
+    </div>
+
+    <div class="card">
+      <h3>Personal learning plan</h3>
+      <div class="grid3">
+        <div><label for="planField">Field</label><select id="planField"></select></div>
+        <div><label for="planLevel">Your level</label><input id="planLevel" placeholder="e.g. 2nd year BS CS"></div>
+        <div><label for="planGoal">Target role</label><input id="planGoal" placeholder="e.g. backend developer in 2 years"></div>
+      </div>
+      <button class="btn" onclick="personalPlan()">Make my 6-month plan</button>
+      <div id="planOut" class="out hidden"></div>
+    </div>
+  </section>
+
+  <!-- Result card -->
+  <section id="tab-card" class="hidden">
+    <div class="card">
+      <h2>Result card reader</h2>
+      <p class="muted">Upload a matric or intermediate result card. The AI reads the marks and suggests fields. Crop out your name and roll number first. The image is sent only when you click the button.</p>
+      <input id="cardFile" type="file" accept="image/jpeg,image/png">
+      <button class="btn" onclick="analyseCard()">Analyse result card</button>
+      <div id="cardOut" class="out hidden"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="inner">
+    <p><strong>TechPath.ai</strong> is built for the Hacktoberfest Hack Day Lahore competition, in the categories Best Use of Gemma 4 and Best Open-Source AI Project. The source code is open under the MIT license.</p>
+    <p>This is a starting point, not official advice. Confirm fees, deadlines, eligibility and visa rules on official websites.</p>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
